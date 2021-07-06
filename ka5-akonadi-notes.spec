@@ -32,6 +32,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Library for akonadi notes integration.
 
+%description -l pl.UTF-8
+Biblioteka do integracji z notatkami akonadi.
+
 %package devel
 Summary:	Header files for %{kaname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kaname}
