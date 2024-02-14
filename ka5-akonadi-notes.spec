@@ -1,31 +1,31 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	23.08.4
+%define		kdeappsver	24.01.95
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		akonadi-notes
 Summary:	Akonadi Notes
 Name:		ka5-%{kaname}
-Version:	23.08.4
-Release:	1
+Version:	24.01.95
+Release:	0.1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	103724888b0532fb07aa1879592a13ed
+Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	241d210d76653000b278f91663805e29
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
-BuildRequires:	Qt5Gui-devel >= 5.11.1
-BuildRequires:	Qt5Test-devel >= 5.9.0
-BuildRequires:	Qt5Xml-devel >= 5.9.0
+BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt6Gui-devel >= 5.11.1
+BuildRequires:	Qt6Test-devel >= 5.9.0
+BuildRequires:	Qt6Xml-devel >= 5.9.0
 BuildRequires:	cmake >= 3.20
 BuildRequires:	gettext-devel
 BuildRequires:	ka5-akonadi-devel >= %{kdeappsver}
 BuildRequires:	ka5-kmime-devel >= %{kdeappsver}
-BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
-BuildRequires:	kf5-ki18n-devel >= %{kframever}
+BuildRequires:	kf6-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf6-ki18n-devel >= %{kframever}
 BuildRequires:	ninja
-BuildRequires:	qt5-build >= %{qtver}
+BuildRequires:	qt6-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
@@ -81,13 +81,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-%ghost %{_libdir}/libKPim5AkonadiNotes.so.5
-%attr(755,root,root) %{_libdir}/libKPim5AkonadiNotes.so.*.*.*
+%attr(755,root,root) %{_libdir}/libKPim6AkonadiNotes.so.*.*
+%ghost %{_libdir}/libKPim6AkonadiNotes.so.6
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/qt5/mkspecs/modules/qt_AkonadiNotes.pri
-%{_includedir}/KPim5/AkonadiNotes
-%{_libdir}/cmake/KF5AkonadiNotes
-%{_libdir}/cmake/KPim5AkonadiNotes
-%{_libdir}/libKPim5AkonadiNotes.so
+%{_includedir}/KPim6/AkonadiNotes
+%{_libdir}/cmake/KPim6AkonadiNotes
+%{_libdir}/libKPim6AkonadiNotes.so
